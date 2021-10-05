@@ -1,2 +1,2 @@
-# whaddaya-wanna-eat
+# Whaddaya Wanna Eat?
 UCF POOSD Project 2
