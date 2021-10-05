@@ -3,7 +3,7 @@ UCF POOSD Project 2 for group ___ (TODO: uh... what's our group KEKW)
 
 # Members
 - Orion Schyberg (PM)
-- Lezette Lueterio (Assistant PM/Frontend)
+- Lezette Leuterio (Assistant PM/Frontend)
 - Dylan Reuter (API/Backend)
 - Brandon Rubio (API)
 - Allexis Knight (DB/Artwork)
