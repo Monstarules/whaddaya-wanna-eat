@@ -38,6 +38,10 @@ const UserSchema = new mongoose.Schema({
         maxLength: 10,
         trim: true,
         required: [true, 'must give a phone number']
+    },
+    verified: {
+        type: Boolean,
+        default: false
     }
 })
 
