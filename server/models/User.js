@@ -40,7 +40,8 @@ const UserSchema = new mongoose.Schema({
         required: [true, 'must give a phone number']
     },
     friends: {
-        type: Array
+        type: Array,
+        default: []
     },
     status: {
         type: String,
