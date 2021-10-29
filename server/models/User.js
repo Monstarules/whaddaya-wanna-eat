@@ -39,9 +39,13 @@ const UserSchema = new mongoose.Schema({
         trim: true,
         required: [true, 'must give a phone number']
     },
-    verified: {
-        type: Boolean,
-        default: false
+    friends: {
+        type: Array
+    },
+    status: {
+        type: String,
+        enum: ['Pending', 'Active'],
+        default: 'Pending'
     }
 })
 
