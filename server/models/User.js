@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
 
 const UserSchema = new mongoose.Schema({
     username: {
@@ -6,6 +7,7 @@ const UserSchema = new mongoose.Schema({
         minLength: 3,
         maxLength: 20,
         trim: true,
+        unique: true,
         required: [true, 'must give a username']
     },
     password: {
@@ -30,6 +32,11 @@ const UserSchema = new mongoose.Schema({
     email: {
         type: String,
         trim: true,
+        match: [
+            /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            'must give a valid email'
+        ],
+        unique: true,
         required: [true, 'must give a email address']
     },
     phone_number: {
@@ -37,10 +44,12 @@ const UserSchema = new mongoose.Schema({
         minLength: 10,
         maxLength: 10,
         trim: true,
+        unique: true,
         required: [true, 'must give a phone number']
     },
     friends: {
-        type: Array
+        type: Array,
+        default: []
     },
     status: {
         type: String,
@@ -48,5 +57,15 @@ const UserSchema = new mongoose.Schema({
         default: 'Pending'
     }
 })
+
+UserSchema.pre('save', async function() {
+    const salt = await bcrypt.genSalt(10)
+    this.password = await bcrypt.hash(this.password, salt)
+})
+
+UserSchema.methods.comparePassword = async function (givenPassword) {
+    const isMatch = await bcrypt.compare(givenPassword, this.password)
+    return isMatch
+}
 
 module.exports = mongoose.model('User', UserSchema)
