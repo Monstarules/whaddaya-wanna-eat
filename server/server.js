@@ -6,6 +6,7 @@ const app = express()
 const connect = require('./config/database')
 const users = require('./routes/users.routes.js')
 const Partys = require('./routes/party.routes.js')
+const friends = require('./routes/friends.routes.js')
 
 const port = process.env.PORT || 3000
 
@@ -15,7 +16,7 @@ app.use('/api/users', users)
 
 app.use('/Party', Partys)
 
-
+app.use('/friends' friends)
 
 const start = async () => {
     try {
