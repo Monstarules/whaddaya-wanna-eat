@@ -1,15 +1,25 @@
-import logo from './logo.png';
-import swift from './swift.png'
 import './App.css';
+import Navbar from './components/Navbar';
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route
+  } from "react-router-dom";
+import Home from './components/Home';
+import About from './components/About';
 
 function App() {
   return (
-	<div className="Logo">
-		<header className="App-header">
-			<img src={logo} className="App-logo" alt="logo"/>
-		</header>
-		<img src={swift} width="300" height="90" className="App-swift" alt="swift"/>
-	</div>
+	<Router>
+		<Navbar />  
+		
+		<Routes>
+			<Route path="/" element={<Home/>}/>
+			<Route path="/about" element={<About/>}/>
+
+		</Routes>
+		
+	</Router>
   );
 }
 
