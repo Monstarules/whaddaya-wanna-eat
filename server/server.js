@@ -16,7 +16,7 @@ app.use('/api/users', users)
 
 app.use('/Party', Partys)
 
-app.use('/friends' friends)
+app.use('/friends', friends)
 
 const start = async () => {
     try {
