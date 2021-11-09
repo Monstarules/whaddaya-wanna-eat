@@ -22,7 +22,7 @@ const addFriend = async (req, res) =>{
 		const user = await User.findById(fid)
 		
 		if (user.length === 0) {
-			return res.status(404).json({ msg: 'user does not exist' })
+			return res.status(404).json({ message: 'user does not exist' })
 		}
 		
 		await User.findOneAndUpdate({_id: userid},  {$push: {friends: fid}},{'new':true})
@@ -31,9 +31,9 @@ const addFriend = async (req, res) =>{
 		await User.findOneAndUpdate({_id: fid}, {$push: {friends: userid}}, {'new':true})
 		
 		res.status(200).json({message: 'Friend Added'})
-		} catch (err) {
-			res.status(500).json({message: 'Error'})
-		}
+	} catch (err) {
+		res.status(500).json({message: 'Error'})
+	}
 }
 
 // remove friend (take in user id and friend's user id)
