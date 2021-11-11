@@ -3,10 +3,10 @@ import './index.css';
 
 const Footer = () => {
     return ( 
-        <div className="footer">
+        <div className="main-footer">
             <div className="container">
-                <div className="row">
-                    {/* Column1 */}
+                {/* <div className="row">
+                  
                     <div className="col">
                         <h4>WHADDAYA WANNA EAT</h4>
                         <ul className="list-unstyled">
@@ -15,7 +15,7 @@ const Footer = () => {
                             <li>address</li>
                         </ul>
                     </div>
-                    {/* Column2 */}
+                 
                     <div className="col">
                         <h4>STUFF</h4>
                         <ul className="list-unstyled">
@@ -24,7 +24,7 @@ const Footer = () => {
                             <li>STUFF3</li>
                         </ul>
                     </div>
-                    {/* Column3 */}
+            
                     <div className="col">
                         <h4>AHHHH</h4>
                         <ul className="list-unstyled">
@@ -33,10 +33,10 @@ const Footer = () => {
                             <li>AHHH</li>
                         </ul>
                     </div>
-                </div>
+                </div>  */}
                 <div className="row">
                     <p classname="col-sm">
-                        &copy;(new Date().getFullYear()) WHADDAYA WANNA EAT | All rights reserved | Terms of Service | Privacy
+                        &copy; 2021 WHADDAYA WANNA EAT | All rights reserved | Contact Us: Email@knights.ucf.edu
 
                     </p>
                 </div>

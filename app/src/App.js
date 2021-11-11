@@ -12,6 +12,8 @@ import Services from './components/Services';
 
 function App() {
   return (
+		// <div className="page-container">
+		// <div className="content-wrap">
 	<Router>
 		<Navbar />  
 		<Routes>
@@ -19,8 +21,13 @@ function App() {
 			<Route path="/about" element={<About/>}/>
 			<Route path="/services" element={<Services/>}/>
 		</Routes>
+		
 		<Footer />
+		
 	</Router>
+	// </div>
+	// </div>
+	
   );
 }
 

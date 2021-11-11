@@ -1,8 +1,15 @@
 .main-footer{
     color: white;
     background-color: orange;
-    padding-top: 3em;
-    position: relative;
-    bottom: 0;
+    /* padding-top: 3em; */
+    /* position: relative; */
+    /* bottom: 0; */
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+left:0;
+bottom:0;
+right:0;
 }

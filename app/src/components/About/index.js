@@ -4,6 +4,7 @@ const About = () => {
     return (
         <div>
             Hi i am lezette
+            
         </div>
     )
 }
