@@ -1,12 +1,14 @@
 import React from 'react';
+import symbol1 from '../../symbol1.png';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink} from './NavbarElements';
 
 
 const Navbar = () => {
     return (        
                <Nav>
+                   <img src={symbol1} className="App-logo" class="img-responsive" alt="logo"/>
                     <NavLink to="/">
-                        <h1>LOGO</h1>
+                        {/*<h1>Whaddaya Wanna Eat?</h1>*/}
                     </NavLink>
                     <Bars />
                     <NavMenu>

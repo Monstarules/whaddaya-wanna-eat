@@ -1,0 +1,70 @@
+.story{
+    border: 4px solid #FC4830;
+    box-sizing: content-box;
+    text-align:center;
+    margin-left: 22%;
+    margin-right:22%;
+    padding:10px;
+}
+
+.self{
+    border: 2px solid orange;
+    box-sizing:content-box;
+}
+
+.selfie{
+    width:200px;
+    height:200px;
+    position:absolute;
+    left: 20%;
+    border: 5px solid orange;
+}
+
+.selfieTitle{
+    font-size: 30px;
+    color:#FC4830;
+}
+
+.selfieDesc{
+    margin-top:1%;
+    margin-right:20%;
+    width:500px;
+    height:150px;
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+    float:right;
+    border: 2px solid orange;
+    box-sizing:content-box;
+}
+
+.card-body {
+    justify-content: center;
+    align-items: right;
+    display: flex;
+	flex-direction: column;
+    padding: 50px;
+}
+
+.heading{
+    background-color: #f3f0d6;
+    padding-top:15px;
+    padding-bottom:15px;
+    vertical-align:center;
+}
+
+.pad{
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.divisor{
+    margin-left:32%;
+    width: 500px;
+    height:50px;
+    padding-top:15px;
+}
+
+.storyTitle{
+    background-color: #f3f0d6;
+}

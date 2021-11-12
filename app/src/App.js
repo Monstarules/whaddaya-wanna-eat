@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import carouselPics from './components/Home/carouselPics';
 import {
 	BrowserRouter as Router,
 	Routes,
@@ -17,7 +18,7 @@ function App() {
 	<Router>
 		<Navbar />  
 		<Routes>
-			<Route path="/" element={<Home/>}/>
+			<Route path="/" element={<Home slides={carouselPics}/>}/>
 			<Route path="/about" element={<About/>}/>
 			<Route path="/services" element={<Services/>}/>
 		</Routes>
