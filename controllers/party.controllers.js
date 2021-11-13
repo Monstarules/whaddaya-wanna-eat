@@ -1,4 +1,4 @@
-const Party = require('../models/PartySchema')
+const Party = require('../models/Party')
 
 // Create a Party (take in User id) 
 const createParty = async (req, res) => {
