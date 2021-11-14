@@ -75,7 +75,7 @@ UserSchema.pre('save', async function() {
         token += characters[Math.floor(Math.random() * characters.length )]
     }
 
-    const salt2 = await bcrypt.genSalt(10)
+    const salt2 = await bcrypt.genSalt(15)
     this.confirmation_code = await bcrypt.hash(token, salt2)
     this.confirmation_code = this.confirmation_code.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
 })

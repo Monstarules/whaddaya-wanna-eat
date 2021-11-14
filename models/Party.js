@@ -9,10 +9,18 @@ const PartySchema = new mongoose.Schema({
         required: true
     },
     // Stores in Specfic Users
-    User_IDs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    //User_IDs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+
+    User_IDs: {
+        type: Array,
+        default: []
+    },
 
     // Stores list of resturants added by Users
-    resturant_List: [{ type: String }]
+    resturant_List: {
+        type: Array,
+        default: []
+    }
 })
 
 module.exports = mongoose.model('Party', PartySchema)

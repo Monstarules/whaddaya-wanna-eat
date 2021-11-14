@@ -9,7 +9,7 @@ const createParty = async (req, res) => {
     })
 
     // Push the User's ID into the party array
-    party.User_IDs.push(req.params.id)
+    party.User_IDs.push(req.user.user_id)
 
     try {
         // save party to database
@@ -34,10 +34,21 @@ const deleteParty = async(req, res) => {
 const joinParty = async (req, res) => {
     
     const partyCode = req.params.code
-    const userid = req.params.userid
+    const userid = req.user.user_id
 
     try {
-        await Party.findOneAndUpdate({code: partyCode}, {$push: {User_IDs: userid} },{'new':true})
+        await Party.findOneAndUpdate(
+            {
+                code: partyCode
+            }, 
+            {
+                $push: { 
+                    User_IDs: userid 
+                } 
+            },
+            {
+                'new':true
+            })
         res.status(200).json({ status: 'success', message: 'Party Joined'})
     }
     catch (error) {
@@ -47,12 +58,22 @@ const joinParty = async (req, res) => {
 
 // Leave Party (take in party id & user id)
 const leaveParty = async (req, res) => {
-
     const partyid = req.params.partyid
-    const userid = req.params.userid
+    const userid = req.user.user_id
 
     try {
-        await Party.findByIdAndUpdate({_id: partyid}, {$pull: {User_IDs: userid} },{'new':true})
+        const party = await Party.findByIdAndUpdate(
+            partyid, 
+            {
+                $pull: { 
+                    User_IDs: userid  
+                },
+            },
+            {
+                'new':true
+            }
+        )
+
         res.status(200).json({ status: 'success', message: 'Party Left' })
     }
     catch (error) {
