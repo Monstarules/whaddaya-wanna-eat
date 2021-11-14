@@ -51,7 +51,7 @@ const login = async (req, res) => {
 
 const verifyAccount = async (req, res) => {
     try {
-        const user = await User.findOneAndUpdate({ confirmationCode: req.params.confirmationCode}, { status: 'Active' })
+        const user = await User.findOneAndUpdate({ confirmation_code: req.params.confirmationCode}, { status: 'Active' })
         
         if (!user) {
             return res.status(404).json({ message: 'User not found' })
