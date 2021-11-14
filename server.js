@@ -7,6 +7,7 @@ const cors = require('cors')
 const path = require('path')
 
 const connect = require('./config/database')
+const auth = require('./middleware/authenticate')
 const users = require('./routes/users.routes.js')
 const party = require('./routes/party.routes')
 
@@ -16,7 +17,7 @@ app.use(express.json())
 app.use(cors())
 
 app.use('/api/users', users)
-app.use('/api/party', party)
+app.use('/api/party', auth, party)
 
 app.use(express.static(path.join(__dirname, '/app/build')))
 
