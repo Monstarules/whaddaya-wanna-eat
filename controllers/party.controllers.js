@@ -2,19 +2,34 @@ const Party = require('../models/Party')
 
 // Create a Party (take in User id) 
 const createParty = async (req, res) => {
-    
-    // Setup new Party
-    const party = new Party ({
-        code: req.body.code
-    })
 
-    // Push the User's ID into the party array
-    party.User_IDs.push(req.user.user_id)
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    
+    // initialize return string
+    let retval = ""
+    
+    // gives 10,000 tries at randomly generating unique code
+    for(let i = 0; i < 10; i++){
+        
+        // loop creating a 6 char string
+        for(let j = 0; j < 10; j++) {
+            retval = retval + chars[Math.floor(Math.random()*36)]
+        }
+        
+        const check = await Party.findOne({ code: retval })
+
+        if (!check) break 
+        console.log(i)
+        retval = ''
+    }
 
     try {
         // save party to database
-        const newParty =  await party.save()
-        res.status(201).json({ status: 'success', message: 'Party Created' })
+        const party = await Party.create({ code: retval })
+        party.User_IDs.push(req.user.user_id)
+        party.save()
+
+        res.status(201).json({ status: 'success', party: party, message: 'Party Created' })
     } catch (error) {
         res.status(500).json({ status: 'failure', message: error })
     }
@@ -23,8 +38,13 @@ const createParty = async (req, res) => {
 // Delete Party (take in Party id) 
 const deleteParty = async(req, res) => {
     try {
-        await Party.findByIdAndDelete(req.params.partyid)
-        res.status(200).json({ status: 'success', message: 'Party deleted' })
+        const party = await Party.findByIdAndDelete(req.params.partyid)
+
+        if (!party) {
+            return res.status(404).json({ status: 'failure', message: 'Party does not exist'})
+        }
+
+        res.status(200).json({ status: 'success', party: party, message: 'Party deleted' })
     } catch (error) {
         res.status(500).json({ status: 'failure', message: error })
     }
@@ -37,7 +57,7 @@ const joinParty = async (req, res) => {
     const userid = req.user.user_id
 
     try {
-        await Party.findOneAndUpdate(
+        const party = await Party.findOneAndUpdate(
             {
                 code: partyCode
             }, 
@@ -49,7 +69,12 @@ const joinParty = async (req, res) => {
             {
                 'new':true
             })
-        res.status(200).json({ status: 'success', message: 'Party Joined'})
+
+        if (!party) {
+            return res.status(404).json({ status: 'failure', message: 'Party does not exist'})
+        }
+
+        res.status(200).json({ status: 'success', party: party, message: 'Party Joined'})
     }
     catch (error) {
         res.status(500).json({ status: 'failure', message: error })
@@ -74,7 +99,11 @@ const leaveParty = async (req, res) => {
             }
         )
 
-        res.status(200).json({ status: 'success', message: 'Party Left' })
+        if (!party) {
+            return res.status(404).json({ status: 'failure', message: 'Party does not exist'})
+        }
+
+        res.status(200).json({ status: 'success', party: party, message: 'Party Left' })
     }
     catch (error) {
         res.status(500).json({ status: 'failure', message: error })
