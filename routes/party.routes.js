@@ -4,18 +4,15 @@ const router = express.Router()
 const {createParty, deleteParty, joinParty, leaveParty, addList} = require('../controllers/party.controllers')
 
 // Create Party Route
-router.route('/:id').post(createParty)
+router.route('/').post(createParty)
 
 // Delete Party Route
-router.route('/:partyid').delete(deleteParty)
+router.route('/:partyid').delete(deleteParty).patch(leaveParty)
 
 // Join Party Route
-router.route('/:code/:userid').patch(joinParty)
-
-// Leave Party Route
-router.route('/:partyid/:userid').delete(leaveParty)
+router.route('/join/:code').patch(joinParty)
 
 // Add to Resturant List Route
-router.route('/:code').patch(addList)
+//router.route('/:code').patch(addList)
 
 module.exports = router
