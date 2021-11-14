@@ -1,10 +1,25 @@
 const mongoose = require('mongoose')
 
 const PartySchema = new mongoose.Schema({
-    user_ids: {
+    // Party Code for inviting Users
+    code: { 
+        type: String, 
+        max: 5, 
+        uppercase: true, 
+        required: true
+    },
+    // Stores in Specfic Users
+    //User_IDs: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+
+    User_IDs: {
         type: Array,
-        maxLength: 7,
-        required: [true, 'must have at least 1 user id']
+        default: []
+    },
+
+    // Stores list of resturants added by Users
+    resturant_List: {
+        type: Array,
+        default: []
     }
 })
 
