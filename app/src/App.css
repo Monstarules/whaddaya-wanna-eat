@@ -36,6 +36,7 @@
   display:flex;
   justify-content:center;
   align-items:center;
+  max-width: 100%;
   /*border: 2px solid #FC4830;
   box-sizing: content-box;*/
 }
@@ -62,9 +63,20 @@
   user-select:none;
 }
 
+@media screen and (max-width: 768px) {
+	.left-arrow{
+		left: 0%;
+	}
+	
+	.right-arrow{
+		right: 0%;
+	}
+}
+
 .slide{
   opacity: 0;
   transition-duration: 1s ease;
+  max-width: 60%;
 }
 
 .slide.active{

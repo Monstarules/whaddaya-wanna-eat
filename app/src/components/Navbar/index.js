@@ -10,7 +10,7 @@ const Navbar = () => {
                     <NavLink to="/">
                         {/*<h1>Whaddaya Wanna Eat?</h1>*/}
                     </NavLink>
-                    <Bars />
+                  
                     <NavMenu>
                         <NavLink to="/" activeStyle>
                             Home
