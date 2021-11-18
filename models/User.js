@@ -85,4 +85,10 @@ UserSchema.methods.comparePassword = async function (givenPassword) {
     return isMatch
 }
 
+UserSchema.methods.updatePassword = async function (givenPassword) {
+    const salt = await bcrypt.genSalt(10)
+    const newPassword = await bcrypt.hash(givenPassword, salt)
+    return newPassword
+}
+
 module.exports = mongoose.model('User', UserSchema)

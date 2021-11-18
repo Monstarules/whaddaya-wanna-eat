@@ -30,4 +30,21 @@ const sendConfirmationEmail = async (username, email, confirmationCode) => {
     }
 }
 
-module.exports = sendConfirmationEmail
+const sendPasswordResetEmail = async (username, email, userId) => {
+    try {
+        const resetPassword = await transport.sendMail({
+            from: user,
+            to: email,
+            subject: 'Reset Password',
+            html: `<h1>Reset Password</h1>
+                <h2>Hello ${username}</h2>
+                <p>Click on the link below to reset your password. If this is not you please disregard this email.</p>
+                <a href=http://localhost:5000/resetPassword/${userId}> Click here</a>
+                </div>`,
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports = { sendConfirmationEmail, sendPasswordResetEmail }
