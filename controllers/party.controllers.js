@@ -5,27 +5,27 @@ const createParty = async (req, res) => {
 
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
     
-    // initialize return string
-    let retval = ""
+    // initialize party id string
+    let partyCode = ""
     
     // gives 10,000 tries at randomly generating unique code
     for(let i = 0; i < 10; i++){
         
         // loop creating a 6 char string
         for(let j = 0; j < 10; j++) {
-            retval = retval + chars[Math.floor(Math.random()*36)]
+            partyCode = partyCode + chars[Math.floor(Math.random()*36)]
         }
         
-        const check = await Party.findOne({ code: retval })
+        const check = await Party.findOne({ code: partyCode })
 
         if (!check) break 
         console.log(i)
-        retval = ''
+        partyCode = ''
     }
 
     try {
         // save party to database
-        const party = await Party.create({ code: retval })
+        const party = await Party.create({ code: partyCode })
         party.User_IDs.push(req.user.user_id)
         party.save()
 
@@ -59,7 +59,7 @@ const joinParty = async (req, res) => {
     try {
         const party = await Party.findOneAndUpdate(
             {
-                code: partyCode
+                code: partyCode.toUpperCase()
             }, 
             {
                 $push: { 
