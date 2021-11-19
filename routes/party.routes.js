@@ -7,7 +7,7 @@ const {createParty, deleteParty, joinParty, leaveParty, addList} = require('../c
 router.route('/create').post(createParty)
 
 // Delete Party Route
-router.route('/delete').delete(deleteParty).patch(leaveParty)
+router.route('/delete').put(deleteParty).patch(leaveParty)
 
 // Join Party Route
 router.route('/join').patch(joinParty)
