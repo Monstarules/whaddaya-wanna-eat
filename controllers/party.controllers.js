@@ -38,7 +38,7 @@ const createParty = async (req, res) => {
 // Delete Party (take in Party id) 
 const deleteParty = async(req, res) => {
     try {
-        const party = await Party.findByIdAndDelete(req.params.partyid)
+        const party = await Party.findByIdAndDelete(req.body.partyid)
 
         if (!party) {
             return res.status(404).json({ status: 'failure', message: 'Party does not exist'})
@@ -53,7 +53,7 @@ const deleteParty = async(req, res) => {
 // Join Party (take in party CODE & user id)   
 const joinParty = async (req, res) => {
     
-    const partyCode = req.params.code
+    const partyCode = req.body.code
     const userid = req.user.user_id
 
     try {
@@ -83,7 +83,7 @@ const joinParty = async (req, res) => {
 
 // Leave Party (take in party id & user id)
 const leaveParty = async (req, res) => {
-    const partyid = req.params.partyid
+    const partyid = req.body.partyid
     const userid = req.user.user_id
 
     try {
