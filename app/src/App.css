@@ -5,6 +5,7 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  margin-left:20px;
 }
 
 .App-header {
@@ -18,4 +19,68 @@
   display: flex;
   flex-direction: row;
   align-items: right;
+}
+
+/* .page-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap{
+  flex:1;
+} */
+
+.slider{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  max-width: 100%;
+  /*border: 2px solid #FC4830;
+  box-sizing: content-box;*/
+}
+
+.right-arrow{
+  position:absolute;
+  top:40%;
+  right:20%;
+  width:70px;
+  height:90px;
+  z-index:10px;
+  cursor:pointer;
+  user-select:none;
+}
+
+.left-arrow{
+  position:absolute;
+  top:40%;
+  left:20%;
+  width:70px;
+  height:90px;
+  z-index:10px;
+  cursor:pointer;
+  user-select:none;
+}
+
+@media screen and (max-width: 768px) {
+	.left-arrow{
+		left: 0%;
+	}
+	
+	.right-arrow{
+		right: 0%;
+	}
+}
+
+.slide{
+  opacity: 0;
+  transition-duration: 1s ease;
+  max-width: 60%;
+}
+
+.slide.active{
+  opacity: 1;
+  transition-duration:1s;
+  transform: scale(1.08);
 }
