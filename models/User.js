@@ -51,6 +51,10 @@ const UserSchema = new mongoose.Schema({
         type: Array,
         default: []
     },
+    confirmation_code: {
+        type: String,
+        unique: true,
+    },
     status: {
         type: String,
         enum: ['Pending', 'Active'],
@@ -59,13 +63,32 @@ const UserSchema = new mongoose.Schema({
 })
 
 UserSchema.pre('save', async function() {
+    // hashes password
     const salt = await bcrypt.genSalt(10)
     this.password = await bcrypt.hash(this.password, salt)
+
+    // creates confirmation code
+    const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    let token = ''
+
+    for (let i = 0; i < 64; i++) {
+        token += characters[Math.floor(Math.random() * characters.length )]
+    }
+
+    const salt2 = await bcrypt.genSalt(15)
+    this.confirmation_code = await bcrypt.hash(token, salt2)
+    this.confirmation_code = this.confirmation_code.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
 })
 
 UserSchema.methods.comparePassword = async function (givenPassword) {
     const isMatch = await bcrypt.compare(givenPassword, this.password)
     return isMatch
+}
+
+UserSchema.methods.updatePassword = async function (givenPassword) {
+    const salt = await bcrypt.genSalt(10)
+    const newPassword = await bcrypt.hash(givenPassword, salt)
+    return newPassword
 }
 
 module.exports = mongoose.model('User', UserSchema)
