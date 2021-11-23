@@ -16,16 +16,17 @@ const About = () => {
             <div>
                 <p className='story'>Our app, like many, has a story. Our story started with our lead developer, Orion. He was scrolling through the internet one day when he came across a meme, where someone decribed a tinder for restaurants. From this lone meme, Orion created our concept, Whaddaya Wanna Eat, to help you choose a restaurant with no hassle. After we all agreed to create our restaurant tinder, Sophie made our iconic logo. From this logo, Allexis created our adorable app mascot, whom was based on the loveable center of our team, Lezette. Allexis also spread the logo's color scheme across the mascot and website, while Sophie spread it across the app itself. With the aid of the Backend Boys, Dylan, Andre and Brandon, under the lead of Orion, our restaurant tinder took shape, and Whadddaya Wanna Eat was formed.</p>
             </div>
-            <div ><img src={divisor} className="divisor"/></div>
+            {/* <div ><img src={divisor} className="divisor"/></div> */}
             <div><h1 className="heading">Whaddaya Wanna Eat's Development Chefs</h1></div>
+            <div>
             <div className="card-body">
                 <img src={selfie} className="selfie"/>
                 <div>
                     <div className="selfieDesc">
-                    <b className="selfieTitle">Orion Schyberg</b>
-                    <br />
-                    Master Onion. Lord Onion did the thing that made us do the thing, thus Sir Onion has made the thing happen. All hail Onion. Give prayer to Onion.
-                    Onion power. Onion Powder. 
+                        <b className="selfieTitle">Orion Schyberg</b>
+                        <br />
+                        Master Onion. Lord Onion did the thing that made us do the thing, thus Sir Onion has made the thing happen. All hail Onion. Give prayer to Onion.
+                        Onion power. Onion Powder. 
                     </div>
                 </div>
             </div>
@@ -88,6 +89,7 @@ const About = () => {
                     Massive nerd, artsy fartsy web design person
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     )

@@ -66,10 +66,12 @@
 @media screen and (max-width: 768px) {
 	.left-arrow{
 		left: 0%;
+    /* top: 0%; */
 	}
 	
 	.right-arrow{
 		right: 0%;
+    /* top: 0%; */
 	}
 }
 
