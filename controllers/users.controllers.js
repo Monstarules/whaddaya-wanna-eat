@@ -101,7 +101,7 @@ const resetPassword = async (req, res) => {
 }
 
 const editProfile = async (req, res) => {
-    const userid = req.body.user_id
+    const userid = req.user.user_id
     const newFirstName = req.body.first_name
     const newLastName = req.body.last_name
 
@@ -120,7 +120,7 @@ const editProfile = async (req, res) => {
 }
 
 const getProfile = async (req, res) => {
-    const userid = req.body.user_id
+    const userid = req.user.user_id
 
     try {
         const user = await User.findbyId(userid)
