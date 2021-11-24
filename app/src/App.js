@@ -10,6 +10,7 @@ import {
 import Home from './components/Home';
 import About from './components/About';
 import Services from './components/Services';
+import Settings from './components/Settings';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
 			<Route path="/" element={<Home slides={carouselPics}/>}/>
 			<Route path="/about" element={<About/>}/>
 			<Route path="/services" element={<Services/>}/>
+			<Route path="/settings" element={<Settings/>}/>
 		</Routes>
 		
 		<Footer />
