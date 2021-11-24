@@ -35,10 +35,12 @@ const createParty = async (req, res) => {
     }
 }
 
-// Delete Party (take in Party id) 
+// Delete Party (take in UNIQUE party code) 
 const deleteParty = async(req, res) => {
+    const partyCode = req.body.code
+
     try {
-        const party = await Party.findByIdAndDelete(req.body.partyid)
+        const party = await Party.findOneAndDelete({code: partyCode.toUpperCase()})
 
         if (!party) {
             return res.status(404).json({ status: 'failure', message: 'Party does not exist'})
@@ -81,14 +83,16 @@ const joinParty = async (req, res) => {
     }
 }
 
-// Leave Party (take in party id & user id)
+// Leave Party (take in party code)
 const leaveParty = async (req, res) => {
-    const partyid = req.body.partyid
+    const partyCode = req.body.code
     const userid = req.user.user_id
 
     try {
-        const party = await Party.findByIdAndUpdate(
-            partyid, 
+        const party = await Party.findOneAndUpdate(
+            {
+                code: partyCode.toUpperCase()
+            },  
             {
                 $pull: { 
                     User_IDs: userid  
@@ -111,9 +115,9 @@ const leaveParty = async (req, res) => {
 }
 
 // Add to temp resturant list
-const addList = async (req, res) => {
+const addToList = async (req, res) => {
 
-    const partyCode = req.params.code
+    const partyCode = req.body.code
     const resturantName = req.body.resturantName
 
     try {
@@ -129,5 +133,5 @@ module.exports = {
     deleteParty,
     joinParty,
     leaveParty,
-    addList
+    addToList
 }
