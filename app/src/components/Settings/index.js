@@ -12,7 +12,7 @@ const Settings = () => {
                 <form className="form">
                     <div>
                     <label>
-                        Email:
+                        Email:&nbsp;
                         <input type="email" name="email" className="input" />
                     </label>
                     </div>
