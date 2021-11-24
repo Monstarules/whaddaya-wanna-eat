@@ -123,7 +123,7 @@ const getProfile = async (req, res) => {
     const userid = req.user.user_id
 
     try {
-        const user = await User.findbyId(userid).exec()
+        const user = await User.findById(userid)
         
         if (!user)
         {
