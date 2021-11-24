@@ -1,6 +1,8 @@
 import React from 'react';
 import symbol1 from '../../symbol1.png';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink} from './NavbarElements';
+import selfie from "../../selfie.png";
+
 
 
 const Navbar = () => {
@@ -10,7 +12,7 @@ const Navbar = () => {
                     <NavLink to="/">
                         {/*<h1>Whaddaya Wanna Eat?</h1>*/}
                     </NavLink>
-                    <Bars />
+                  
                     <NavMenu>
                         <NavLink to="/" activeStyle>
                             Home
@@ -21,9 +23,8 @@ const Navbar = () => {
                         <NavLink to="/services" activeStyle>
                             Services
                         </NavLink>
-                        {/* <NavLink to="/contact-us" activeStyle>
-                            Contact Us
-                        </NavLink> */}
+                        <NavLink to="/settings" activeStyle><a href="" className="settings"><img className="settings" src={selfie} width="50px" height="50px"/></a>
+                        </NavLink>
                     </NavMenu>
                     {/* <NavBtn>
                         <NavBtnLink to='/signin'>Sign In</NavBtnLink>

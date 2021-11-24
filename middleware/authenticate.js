@@ -14,7 +14,7 @@ const auth = async (req, res, next) => {
         req.user = { user_id: payload.user_id}
         next()
     } catch (error) {
-        console.log('error')
+        res.status(500).json({ status: 'failure', message: 'user is not authorized'})
     }
 }
 
