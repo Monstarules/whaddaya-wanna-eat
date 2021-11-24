@@ -100,10 +100,48 @@ const resetPassword = async (req, res) => {
     }
 }
 
+const editProfile = async (req, res) => {
+    const userid = req.body.user_id
+    const newFirstName = req.body.first_name
+    const newLastName = req.body.last_name
+
+    try {
+        const user = await User.findByIdAndUpdate(userid, {first_name: newFirstName}, {last_name: newLastName})
+
+        if (!user)
+        {
+            return res.status(404).json({ status: 'failure', message: 'User does not exist'}) 
+        }
+        res.status(200).json({ status: 'success', user: user, message: 'User Profile updated' })
+    }
+    catch (error) {
+        res.status(500).json({ status: 'failure', message: error })
+    }
+}
+
+const getProfile = async (req, res) => {
+    const userid = req.body.user_id
+
+    try {
+        const user = await User.findbyId(userid)
+        
+        if (!user)
+        {
+            return res.status(404).json({ status: 'failure', message: 'User does not exist'}) 
+        }
+        res.status(200).json({ status: 'success', user: user, message: 'User Got' })
+    }
+    catch (error) {
+        res.status(500).json({ status: 'failure', message: error })
+    }
+}
+
 module.exports = {
     register,
     login,
     verifyAccount,
     sendPasswordReset,
-    resetPassword
+    resetPassword,
+    editProfile,
+    getProfile
 }
