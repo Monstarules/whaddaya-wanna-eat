@@ -1,7 +1,13 @@
 import React from 'react';
-import selfie from '../../selfie.png';
+import cheemo from '../../cheemo.jpg';
 import banner from '../../banner.png';
 import divisor from '../../divisor.png';
+import orion_selfie from '../../orion_selfie.png';
+import dylan_selfie from '../../dylan_selfie.jpg';
+import orlandobloo from '../../orlandobloo.jpg';
+import sophie_selfie from '../../sophie_selfie.jpg';
+import redVelvet from '../../red_velvet_ritual.png';
+import andre_selfie from '../../andre_selfie.jpg';
 import './index.css';
 
 const About = () => {
@@ -19,10 +25,10 @@ const About = () => {
             <div ><img src={divisor} className="divisor"/></div>
             <div><h1 className="heading">Whaddaya Wanna Eat's Development Chefs</h1></div>
             <div className="card-body">
-                <img src={selfie} className="selfie"/>
+                <img src={orion_selfie} className="selfie"/>
                 <div>
                     <div className="selfieDesc">
-                    <b className="selfieTitle">Orion Schyberg</b>
+                    <b className="selfieTitle">God King Onion Schyberg</b>
                     <br />
                     Master Onion. Lord Onion did the thing that made us do the thing, thus Sir Onion has made the thing happen. All hail Onion. Give prayer to Onion.
                     Onion power. Onion Powder. 
@@ -30,7 +36,7 @@ const About = () => {
                 </div>
             </div>
             <div className="card-body">
-                <img src={selfie} className="selfie"/>
+                <img src={cheemo} className="selfie"/>
                 <div>
                     <div className="selfieDesc">
                     <b className="selfieTitle">Lezette Leuterio</b>
@@ -40,7 +46,7 @@ const About = () => {
                 </div>
             </div>
             <div className="card-body">
-                <img src={selfie} className="selfie"/>
+                <img src={sophie_selfie} className="selfie"/>
                 <div>
                     <div className="selfieDesc">
                     <b className="selfieTitle">Sophie Guelfi</b>
@@ -50,37 +56,39 @@ const About = () => {
                 </div>
             </div>
             <div className="card-body">
-                <img src={selfie} className="selfie"/>
+                <img src={orlandobloo} className="selfie"/>
                 <div>
                     <div className="selfieDesc">
                     <b className="selfieTitle">Brandon Rubio</b>
                     <br />
                     Backend boys member, Onion approved
+                    <br />let's go brandon
                     </div>
                 </div>
             </div>
             <div className="card-body">
-                <img src={selfie} className="selfie"/>
+                <img src={andre_selfie} className="selfie"/>
                 <div>
                     <div className="selfieDesc">
                     <b className="selfieTitle">Andre Rodriguez</b>
                     <br />
-                    Backend Boys member, database skillz
+                    Backend Boys member, database skillz, in a bromance with dylan
                     </div>
                 </div>
             </div>
             <div className="card-body">
-                <img src={selfie} className="selfie"/>
+                <img src={dylan_selfie} className="selfie"/>
                 <div>
                     <div className="selfieDesc">
                     <b className="selfieTitle">Dylan Reuter</b>
                     <br />
-                    Backend Boys member, jack of all coding
+                    Backend Boys member, jack of all coding, has a giant ass, in a bromance with andre
+                
                     </div>
                 </div>
             </div>
             <div className="card-body">
-                <img src={selfie} className="selfie"/>
+                <img src={redVelvet} className="selfie"/>
                 <div>
                     <div className="selfieDesc">
                     <b className="selfieTitle">Allexis Knight</b>
