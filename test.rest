@@ -1,0 +1,11 @@
+PATCH https://waddaya-wanna-eat.herokuapp.com/api/users/edit
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjE4NDYwODM2NDU2MmI2M2NjYjhmMTNmIiwiaWF0IjoxNjM3NzIzMDY5fQ.xYU_GiQX8a6zdAiViOsi_ROYmqknBG8hNxipI0RVSu0
+Content-Type: application/json
+
+{
+    "first_name":"Hello",
+    "last_name":"Workplz"
+}
+
+
+
