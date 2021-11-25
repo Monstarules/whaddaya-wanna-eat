@@ -6,7 +6,7 @@ const { register, login, verifyAccount, sendPasswordReset, resetPassword, editPr
 
 router.route('/register').post(register)
 router.route('/login').post(login)
-router.route('/confirm/:confirmationCode').patch(verifyAccount)
+router.route('/confirm/:confirmationCode').get(verifyAccount) // was patch before
 router.route('/resetPassword').post(sendPasswordReset)
 router.route('/resetPassword/:id').patch(resetPassword)
 router.route('/edit').patch(auth, editProfile)

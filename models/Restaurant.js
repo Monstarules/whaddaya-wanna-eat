@@ -12,7 +12,7 @@ const RestaurantSchema = new mongoose.Schema({
 		type: Number,
 		minLength: 5,
 		maxLength: 5,
-		required: [true, 'restuarant must have zipcode]
+		required: [true, 'restuarant must have zipcode']
 	},
 	
 	name: {
@@ -40,9 +40,9 @@ const RestaurantSchema = new mongoose.Schema({
 		type: String,
 		maxLength: 20,
 		trim: true
-	}
+	},
 	
-	desription: {
+	description: {
 		type: String,
 		maxLength: 300,
 		trim: true

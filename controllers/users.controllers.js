@@ -57,7 +57,8 @@ const verifyAccount = async (req, res) => {
             return res.status(404).json({ status: 'failure', message: 'User not found' })
         }
 
-        res.status(200).json({ status: 'success', message: 'account has been verified' })
+        return res.redirect('https://waddaya-wanna-eat.herokuapp.com/')
+        // res.status(200).json({ status: 'success', message: 'account has been verified' })
     } catch (error) {
         res.status(500).json({ status: 'failure', message: error})
     }
