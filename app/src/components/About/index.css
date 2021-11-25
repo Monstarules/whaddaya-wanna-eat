@@ -162,3 +162,10 @@
 }
 
 
+@media screen and (max-width: 768px) {
+    .divisor{
+        width: 300px;
+        margin-left: 50px;
+    }
+}
+
