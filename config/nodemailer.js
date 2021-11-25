@@ -39,7 +39,7 @@ const sendPasswordResetEmail = async (username, email, userId) => {
             html: `<h1>Reset Password</h1>
                 <h2>Hello ${username}</h2>
                 <p>Click on the link below to reset your password. If this is not you please disregard this email.</p>
-                <a href=http://localhost:5000/resetPassword/${userId}> Click here</a>
+                <a href=https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/${userId}> Click here</a>
                 </div>`,
         })
     } catch (error) {

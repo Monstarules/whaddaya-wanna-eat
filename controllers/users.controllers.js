@@ -108,7 +108,7 @@ const editProfile = async (req, res) => {
     const newLastName = req.body.last_name
 
     try {
-        const user = await User.findByIdAndUpdate(userid,{"$set":{"first_name": newFirstName, "last_name": newLastName}})
+        const user = await User.findByIdAndUpdate(userid,{"$set":{"first_name": newFirstName, "last_name": newLastName}},{new: true})
 
         if (!user)
         {
