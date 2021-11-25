@@ -1,5 +1,5 @@
 .button{
-    background-color: black;
+    background-color: #FC4830;
     color: white;
     font-size: 20px;
     padding: 10px 60px;
@@ -10,7 +10,7 @@
 }
 
 .box_container{
-    border: 3px solid black;
+    border: 3px solid #FC4830;
     width: 50%;
     margin: auto;
     margin-bottom: 10px
@@ -35,6 +35,16 @@
     box-sizing:border-box;
     transition:.3s;    
     padding: 10px; 
+}
+
+.input2{
+    width:50%;
+    border:2px solid #aaa;
+    border-radius:4px;
+    outline:none;
+    padding:10px;
+    box-sizing:border-box;
+    transition:.3s;    
 }
   
 .input:focus{

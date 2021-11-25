@@ -11,6 +11,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Services from './components/Services';
 import Settings from './components/Settings';
+import Verification from './components/Verification';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
 			<Route path="/about" element={<About/>}/>
 			<Route path="/services" element={<Services/>}/>
 			<Route path="/settings" element={<Settings/>}/>
+			<Route path="/verification" element={<Verification/>}/>
 		</Routes>
 		
 		<Footer />

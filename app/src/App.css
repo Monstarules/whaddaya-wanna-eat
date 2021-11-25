@@ -87,3 +87,10 @@
   transform: scale(1.08);
 }
 
+.settings{
+  margin-top:2px;
+}
+
+.navLogo{
+  margin-left:20px;
+}

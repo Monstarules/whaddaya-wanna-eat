@@ -56,7 +56,6 @@
 
 
 .heading{
-    background-color: #f3f0d6;
     padding-top:15px;
     padding-bottom:15px;
     vertical-align:center;
@@ -68,8 +67,7 @@
 }
 
 .divisor{
-    margin-left:32%;
-    width: 500px;
+    margin-left:27%;
     height:50px;
     padding-top:15px;
 }
@@ -139,7 +137,7 @@
     display: flex;
     flex-direction: column;
     justify-content:space-evenly;
-    
+    border: 2px solid #FC4830;
     transition: transform 200ms ease-in;
     width: 300px;
     margin:auto;
@@ -149,8 +147,10 @@
 
 .card_image{
     height:12rem;
-    width:100%;
-    object-fit: contain;
+    width:12rem;
+    margin-left: 55px;
+    margin-top:20px;
+    border: 2px solid orange;
 }
 
 .card_title{
