@@ -102,6 +102,24 @@ const resetPassword = async (req, res) => {
     }
 }
 
+const editPassword = async (req, res) => {
+    const userid = req.user.user_id
+    const newPassword = req.body.password
+
+    try {
+        const user = await User.findByIdAndUpdate(userid,{"$set":{"password":newPassword}},{new: true})
+
+        if (!user)
+        {
+            return res.status(404).json({ status: 'failure', message: 'User does not exist'}) 
+        }
+        res.status(200).json({ status: 'success', user: user, message: 'User Password updated' })
+    }
+    catch (error) {
+        res.status(500).json({ status: 'failure', message: error })
+    }
+}
+
 const editProfile = async (req, res) => {
     const userid = req.user.user_id
     const newFirstName = req.body.first_name
@@ -145,5 +163,6 @@ module.exports = {
     sendPasswordReset,
     resetPassword,
     editProfile,
-    getProfile
+    getProfile,
+    editPassword
 }
