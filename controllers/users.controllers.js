@@ -62,6 +62,7 @@ const verifyAccount = async (req, res) => {
     } catch (error) {
         res.status(500).json({ status: 'failure', message: error})
     }
+    return res.redirect('https://waddaya-wanna-eat.herokuapp.com/')
 }
 
 // req.body contains a json with only an email address
