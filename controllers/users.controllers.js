@@ -92,8 +92,6 @@ const resetPassword = async (req, res) => {
 
         const newPassword = await user.updatePassword(req.body.password)
 
-        console.log(newPassword)
-
         const updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, { password: newPassword })
 
         res.status(200).json({ status: 'success', message: 'Password has been reset' })
@@ -107,13 +105,17 @@ const editPassword = async (req, res) => {
     const newPassword = req.body.password
 
     try {
-        const user = await User.findByIdAndUpdate(userid,{"$set":{"password":newPassword}},{new: true})
+        const user = await User.findOne({ _id: userid })
 
-        if (!user)
-        {
+        if (!user) {
             return res.status(404).json({ status: 'failure', message: 'User does not exist'}) 
         }
-        res.status(200).json({ status: 'success', user: user, message: 'User Password updated' })
+        
+        const newPassword = await user.updatePassword(newPassword)
+
+        const updatedUser = await User.findOneAndUpdate({ _id: userid }, { password: newPassword })
+        
+        res.status(200).json({ status: 'success', user: updatedUser, message: 'User Password updated' })
     }
     catch (error) {
         res.status(500).json({ status: 'failure', message: error })
