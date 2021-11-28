@@ -43,7 +43,7 @@
 
 .right-arrow{
   position:absolute;
-  top:40%;
+  /* top:40%; */
   right:20%;
   width:70px;
   height:90px;
@@ -54,7 +54,7 @@
 
 .left-arrow{
   position:absolute;
-  top:40%;
+  /* top:40%; */
   left:20%;
   width:70px;
   height:90px;
@@ -66,10 +66,12 @@
 @media screen and (max-width: 768px) {
 	.left-arrow{
 		left: 0%;
+    /* top: 0%; */
 	}
 	
 	.right-arrow{
 		right: 0%;
+    /* top: 0%; */
 	}
 }
 
@@ -83,4 +85,12 @@
   opacity: 1;
   transition-duration:1s;
   transform: scale(1.08);
+}
+
+.settings{
+  margin-top:2px;
+}
+
+.navLogo{
+  margin-left:20px;
 }
