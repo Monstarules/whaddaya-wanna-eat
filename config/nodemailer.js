@@ -22,7 +22,7 @@ const sendConfirmationEmail = async (username, email, confirmationCode) => {
             html: `<h1>Email Confirmation</h1>
                 <h2>Hello ${username}</h2>
                 <p>Thank you for creating an account on whaddya-wanna-eat. Please confirm your email by clicking on the following link</p>
-                <a href=https://waddaya-wanna-eat.herokuapp.com/api/users/confirm/${confirmationCode}> Click here</a>
+                <a href=https://waddaya-wanna-eat.herokuapp.com/#/confirm/${confirmationCode}> Click here</a>
                 </div>`,
         })
     } catch (error) {
@@ -39,7 +39,7 @@ const sendPasswordResetEmail = async (username, email, userId) => {
             html: `<h1>Reset Password</h1>
                 <h2>Hello ${username}</h2>
                 <p>Click on the link below to reset your password. If this is not you please disregard this email.</p>
-                <a href=https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/${userId}> Click here</a>
+                <a href=https://waddaya-wanna-eat.herokuapp.com/#/resetPassword/${userId}> Click here</a>
                 </div>`,
         })
     } catch (error) {
