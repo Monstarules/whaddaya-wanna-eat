@@ -21,6 +21,10 @@ app.use('/api/party', auth, party)
 
 app.use(express.static(path.join(__dirname, '/app/build')))
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 const start = async () => {
     try {
         await connect()
