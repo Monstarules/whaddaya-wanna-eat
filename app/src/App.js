@@ -3,11 +3,10 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import carouselPics from './components/Home/carouselPics';
 import {
-	HashRouter as Router,
+	BrowserRouter as Router,
 	Routes,
 	Route,
   } from "react-router-dom";
-//import { browserHistory } from 'react-router';
 import Home from './components/Home';
 import About from './components/About';
 import Services from './components/Services';
