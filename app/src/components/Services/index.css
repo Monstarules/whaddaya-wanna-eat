@@ -12,3 +12,16 @@
     margin-left:17%;
     margin-right:17%;
 }
+
+.list{
+    justify-content:center;
+    align-items:center;
+    border:2px solid #000;
+    width:750px;
+    margin-left:300px;
+}
+
+.items{
+    justify-content:center;
+    text-align:center;
+}

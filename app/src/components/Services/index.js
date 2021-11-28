@@ -9,6 +9,13 @@ const Services = () => {
             <h2 className="head">What we can and can't do</h2>
             <p className="texts">Being that there is a limit to what our app can do, this means that there are certain boundaries therein which should not be broken, and so we ask that any users of Whaddaya Wanna Eat follow our Terms of Service when using the application. You can read our Terms of Service below.</p>
             <h2 className="head">Terms of Service</h2>
+            <div className="list">
+                <ol className="items">
+                    <li>Please Use Sensibly</li>
+                    <li>Do not tamper with the application's code</li>
+                    <li>Please let us be done with this semester</li>
+                </ol>
+            </div>
         </div>
     )
 }
