@@ -50,7 +50,9 @@ const Home = ({slides}) => {
 				<p class="text">Easy, right? That's because our goal with this app is to give you an easy route directly to the restaurant, and eliminate any hassle in getting to your meal. Interested in trying it for yourself? Click the link below to download it for your mobile device today, so we can help you decide, <br /><b className="whaddaya">Whaddaya Wanna Eat?</b></p>
 			</div>
 			<div>
-				<img class="App-swift" src={swift} width="300" height="90" className="App-swift" alt="swift"/>
+				<a href="https://www.apple.com/app-store/">
+					<img class="App-swift" src={swift} width="300" height="90" className="App-swift" alt="swift"/>
+				</a>
 			</div>
 		</div>
     )
