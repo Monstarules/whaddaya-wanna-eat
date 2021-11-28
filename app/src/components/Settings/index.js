@@ -3,7 +3,9 @@ import './index.css';
 
 function resetPass()
 {	
-	//var userID = getCookieData();
+	var currUrl = window.location.pathname;
+    //var id = url.substring(currUrl.lastIndexOf('/') + 1);
+    var id = this.props.match.params.userId;
 
 	var pass = document.getElementById("password").value;
 	var pass2 = document.getElementById("password2").value;
@@ -11,7 +13,6 @@ function resetPass()
 	document.getElementById("resetPassword").innerHTML = "";
 
     if(pass === pass2){
-        //var tmp = {"Password":pass,"UserID":userID};
         var tmp = {"Password":pass};
 	    var jsonPayload = JSON.stringify( tmp );
     }
@@ -20,7 +21,7 @@ function resetPass()
         throw "exit";
     }
 	
-	var url = 'https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/:idphp/addContact.php';
+	var url = `https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/${id}`;
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open("PATCH", url, true);
@@ -51,7 +52,7 @@ const Settings = () => {
             <h1>Forgot your password? Let us help you.</h1>
             <div className="box_container">
                 <div className="text">
-                    To reset your password, enter a new password and confirm it below.
+                    To reset your password, enter a new password at least 5 characters long and confirm it below.
                 </div>
                 <div id="resetPassword"></div>
                 <form className="form">

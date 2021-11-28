@@ -23,8 +23,6 @@ const Navbar = () => {
                         <NavLink to="/services" activeStyle>
                             Services
                         </NavLink>
-                        <NavLink to="/settings" activeStyle><a href="" className="settings"><img className="settings" src={gear} width="25px" height="25px"/></a>
-                        </NavLink>
                     </NavMenu>
                     {/* <NavBtn>
                         <NavBtnLink to='/signin'>Sign In</NavBtnLink>
