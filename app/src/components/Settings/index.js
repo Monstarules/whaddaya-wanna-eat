@@ -59,7 +59,7 @@ const PATCH = (id) => {
             alert("Password is too short. Please make sure passwords are at least 5 characters in length.");
             throw "exit";
         }
-        var tmp = {"Password":pass};
+        var tmp = {"password":pass};
     }
     else{
         alert("Passwords do not match. Please make sure passwords are the same before submitting.");
