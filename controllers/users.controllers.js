@@ -86,7 +86,7 @@ const sendPasswordReset = async (req, res) => {
 }
 
 const resetPassword = async (req, res) => {
-    const userid: req.params.id
+    const userid = req.params.id
     const newPassword = await user.updatePassword(newPassword)
     
     try {
