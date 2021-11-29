@@ -36,7 +36,9 @@ const login = async (req, res) => {
         }
 
         const isPassword = await user.comparePassword(req.body.password)
-
+        
+        console.log (req.body.password)
+        
         if (!isPassword) {
             return res.status(500).json({ status: 'failure', message: 'Wrong password' })
         }
@@ -86,17 +88,6 @@ const sendPasswordReset = async (req, res) => {
 const resetPassword = async (req, res) => {
     try {
         const user = await User.findOne({ _id: req.params.id })
-        console.log(user)
-
-//         if (!user) {
-//             return res.status(404).json({ status: 'failure', message: 'User not found' })
-//         }
-
-//         const newPassword = await user.updatePassword(req.body.password)
-//         const newPassword = 'areallygoodpassword'
-//         const salt = await bcrypt.genSalt(10)
-//         const newPassword = await bcrypt.hash(req.body.password, salt)
-
         const updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, { password: req.body.password })
 
         res.status(200).json({ status: 'success', message: 'Password has been reset' })
