@@ -83,8 +83,7 @@ const sendPasswordReset = async (req, res) => {
 }
 
 const resetPassword = async (req, res) => {
-    res.send('fuck')
-   /* try {
+    try {
         const user = await User.findOne({ _id: req.params.id })
 
         if (!user) {
@@ -98,7 +97,7 @@ const resetPassword = async (req, res) => {
         res.status(200).json({ status: 'success', message: 'Password has been reset' })
     } catch (error) {
         res.status(500).json({ status: 'failure', message: error })
-    } */
+    }
 }
 
 const editPassword = async (req, res) => {
