@@ -18,7 +18,7 @@ const PATCH = (id) => {
     }
 	else {
 		var tmp = {"password":pass};
-		
+		console.log(tmp);
 		fetch(`https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/${id}`, {
 			method: `PATCH`,
 			body: JSON.stringify({tmp}),
