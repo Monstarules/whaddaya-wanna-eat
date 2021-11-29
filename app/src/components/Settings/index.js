@@ -49,7 +49,7 @@ const Settings = () => {
                         <input type="password" id="password2" className="input2"/>
                     </label>
                     </div>
-                    <button onClick={PATCH} className="button">Submit</button>
+                    <button onClick={PATCH} className="button" type="button">Submit</button>
                 </form>
             </div>
         </div>
