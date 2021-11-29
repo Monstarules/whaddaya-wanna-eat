@@ -86,6 +86,7 @@ const sendPasswordReset = async (req, res) => {
 const resetPassword = async (req, res) => {
     try {
         console.log(req.params.id)
+        console.log(req.body.password)
         const user = await User.findOne({ _id: req.params.id })
 
 //         if (!user) {
