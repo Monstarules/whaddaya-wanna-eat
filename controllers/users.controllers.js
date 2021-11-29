@@ -87,13 +87,13 @@ const resetPassword = async (req, res) => {
         console.log(req.params.id)
         const user = await User.findOne({ _id: req.params.id })
 
-        if (!user) {
-            return res.status(404).json({ status: 'failure', message: 'User not found' })
-        }
+//         if (!user) {
+//             return res.status(404).json({ status: 'failure', message: 'User not found' })
+//         }
 
-        const newPassword = await user.updatePassword(req.body.password)
+//         const newPassword = await user.updatePassword(req.body.password)
 
-        const updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, { password: newPassword })
+//         const updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, { password: newPassword })
 
         res.status(200).json({ status: 'success', message: 'Password has been reset' })
     } catch (error) {
