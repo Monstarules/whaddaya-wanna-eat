@@ -2,14 +2,15 @@ import React from 'react';
 import './index.css';
 
 const VERIFY = (id) => {
-    var currUrl = window.location.href;
-    var id = currUrl.substring(currUrl.lastIndexOf('=') + 1);
+    	var currUrl = window.location.href;
+    	var id = currUrl.substring(currUrl.lastIndexOf('=') + 1);
 	
-	fetch(`https://waddaya-wanna-eat.herokuapp.com/confirm/${id}`, {
+	fetch(`https://waddaya-wanna-eat.herokuapp.com/api/users/confirm/${id}`, {
 		method: `GET`,
 		body: JSON.stringify({}),
 		headers: { 'Content-type': `application/json; charset=UTF-8` },
 	})
+	console.log("Completed verification attempt.");
 }
 
 const Verification = () => {
