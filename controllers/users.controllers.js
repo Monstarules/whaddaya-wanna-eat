@@ -37,7 +37,7 @@ const login = async (req, res) => {
 
         const isPassword = await user.comparePassword(req.body.password)
         
-        console.log (req.body.password)
+        console.log (user)
         
         if (!isPassword) {
             return res.status(500).json({ status: 'failure', message: 'Wrong password' })
