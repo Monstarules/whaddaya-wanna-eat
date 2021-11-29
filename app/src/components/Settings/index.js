@@ -67,7 +67,7 @@ const Settings = () => {
                         <input type="password" id="password2" className="input2"/>
                     </label>
                     </div>
-                    <button onClick={resetPass()} className="button">Submit</button>
+                    <button onClick="resetPass()" className="button">Submit</button>
                 </form>
             </div>
         </div>
