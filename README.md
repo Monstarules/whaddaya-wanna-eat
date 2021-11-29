@@ -1,9 +1,9 @@
 # Whaddaya Wanna Eat?
-UCF POOSD Project 2 for group ___ (TODO: uh... what's our group KEKW)
+UCF COP 4331 (POOSD) Large Project - Group 1
 
 # Members
 - Orion Schyberg (PM)
-- Lezette Leuterio (Assistant PM/Frontend)
+- Lezette Leuterio (Frontend)
 - Dylan Reuter (API)
 - Brandon Rubio (API/DB)
 - Allexis Knight (Frontend/Artwork)
