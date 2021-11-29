@@ -3,10 +3,9 @@ import './index.css';
 
 function resetPass()
 {	
-	var currUrl = window.location.pathname;
-    //var id = url.substring(currUrl.lastIndexOf('/') + 1);
-    var id = this.props.match.params.userId;
-
+	var currUrl = window.location.href;
+    var id = currUrl.substring(currUrl.lastIndexOf('/') + 1);
+    
 	var pass = document.getElementById("password").value;
 	var pass2 = document.getElementById("password2").value;
 
@@ -30,7 +29,7 @@ function resetPass()
 	{
 		xhr.onreadystatechange = function() 
 		{
-			if (this.readyState == 4 && this.status == 200) 
+			if (this.readyState === 4 && this.status === 200) 
 			{
 				document.getElementById("resetPassword").innerHTML = "Password has been reset.";
                 alert("Password has been reset.");

@@ -23,7 +23,7 @@ function App() {
 			<Route path="/" element={<Home slides={carouselPics}/>}/>
 			<Route path="/about" element={<About/>}/>
 			<Route path="/services" element={<Services/>}/>
-			<Route path="/resetPassword" element={<Settings/>}/>
+			<Route path="/resetPassword/:userId" element={<Settings/>}/>
 			<Route path="/verification" element={<Verification/>}/>
 		</Routes>
 		

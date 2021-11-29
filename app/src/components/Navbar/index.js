@@ -8,19 +8,19 @@ import gear from "../../gear.png";
 const Navbar = () => {
     return (        
                <Nav>
-                   <img src={symbol1} className="navLogo" class="img-responsive" alt="logo"/>
+                   <img src={symbol1} className="navLogo" alt="logo"/>
                     <NavLink to="/">
                         {/*<h1>Whaddaya Wanna Eat?</h1>*/}
                     </NavLink>
                   
                     <NavMenu>
-                        <NavLink to="/" activeStyle>
+                        <NavLink to="/">
                             Home
                         </NavLink>
-                        <NavLink to="/about" activeStyle>
+                        <NavLink to="/about">
                             About
                         </NavLink>
-                        <NavLink to="/services" activeStyle>
+                        <NavLink to="/services">
                             Services
                         </NavLink>
                     </NavMenu>
