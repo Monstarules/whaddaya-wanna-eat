@@ -49,7 +49,7 @@
 
 .thing{
     justify-content:center;
-    margin-left:25%;
+    margin-left:48%;
     align-items: center;
     color: orange;
 }
@@ -66,8 +66,13 @@
     }
 
     .list{
+        /* width: 250px; */
         margin-bottom: 100px;
         margin-left: 20%;
         width: 60%;
+    }
+
+    .thing {
+        margin-left: 40%;
     }
 }
