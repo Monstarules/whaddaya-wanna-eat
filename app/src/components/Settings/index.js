@@ -45,7 +45,8 @@ function resetPass()
 	
 }
 
-const PATCH = (id) => {
+function PATCH ()
+{
     var currUrl = window.location.href;
     var id = currUrl.substring(currUrl.lastIndexOf('=') + 1);
 	console.log(id)
