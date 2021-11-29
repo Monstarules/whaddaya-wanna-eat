@@ -87,7 +87,7 @@ const sendPasswordReset = async (req, res) => {
 
 const resetPassword = async (req, res) => {
     const userid = req.params.id
-    const newPassword = req.body.password
+    const pass = req.body.password
     
     try {
         const user = await User.findOne({ _id: userid })
@@ -95,8 +95,8 @@ const resetPassword = async (req, res) => {
         if (!user) {
             return res.status(404).json({ status: 'failure', message: 'User does not exist'}) 
         }
-        
-        const newPassword = await user.updatePassword(newPassword)
+        const salt = await bcrypt.genSalt(10)
+        const newPassword = await bcrypt.hash(this.password, salt)
         const updatedUser = await User.findOneAndUpdate({ _id: userid }, { password: newPassword })
         
         res.status(200).json({ status: 'success', message: 'Password has been reset' })
