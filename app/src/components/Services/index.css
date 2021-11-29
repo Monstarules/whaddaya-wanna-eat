@@ -53,3 +53,18 @@
     align-items: center;
     color: orange;
 }
+
+@media screen and (max-width: 768px) {
+    .list2{
+        width: 250px;
+    }
+
+    .list3{
+        width: 250px;
+    }
+
+    .list{
+        width: 250px;
+        margin-bottom: 100px;
+    }
+}

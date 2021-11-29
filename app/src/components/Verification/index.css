@@ -17,3 +17,10 @@
     margin-top:14%;
     margin-bottom:17%;
 }
+
+@media screen and (max-width: 768px) {
+    .things{
+        margin-bottom: 100px;
+    }
+    
+}
