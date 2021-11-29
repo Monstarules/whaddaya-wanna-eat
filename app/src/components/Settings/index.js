@@ -70,7 +70,8 @@ const PATCH = (id) => {
       method: `PATCH`,
       body: JSON.stringify({tmp}),
       headers: { 'Content-type': `application/json; charset=UTF-8` },
-    }).then((response) => response.json(alert("Password has been reset. Please return to the app login screen to login.")))
+    }).then((response) => response.json(alert("Password has been reset. Please return to the app login screen to login."))).catch((err) => console.log('error: ', err))
+    
     document.getElementById("password").value = "";
     document.getElementById("password2").value = "";
 }
