@@ -4,8 +4,8 @@ import './index.css';
 function resetPass()
 {	
 	var currUrl = window.location.href;
-    var id = currUrl.substring(currUrl.lastIndexOf('/') + 1);
-    
+    var id = currUrl.substring(currUrl.lastIndexOf('#') + 1);
+
 	var pass = document.getElementById("password").value;
 	var pass2 = document.getElementById("password2").value;
 
@@ -20,7 +20,7 @@ function resetPass()
         throw "exit";
     }
 	
-	var url = `https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/${id}`;
+	var url = `https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword#${id}`;
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open("PATCH", url, true);
@@ -45,6 +45,36 @@ function resetPass()
 	
 }
 
+const PATCH = (id) => {
+    var currUrl = window.location.href;
+    var id = currUrl.substring(currUrl.lastIndexOf('#') + 1);
+
+	var pass = document.getElementById("password").value;
+	var pass2 = document.getElementById("password2").value;
+
+	document.getElementById("resetPassword").innerHTML = "";
+
+    if(pass === pass2){
+        if(pass.length < 5){
+            alert("Password is too short. Please make sure passwords are at least 5 characters in length.");
+            throw "exit";
+        }
+        var tmp = {"Password":pass};
+    }
+    else{
+        alert("Passwords do not match. Please make sure passwords are the same before submitting.");
+        throw "exit";
+    }
+
+    fetch(`https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/${id}`, {
+      method: `PATCH`,
+      body: JSON.stringify({tmp}),
+      headers: { 'Content-type': `application/json; charset=UTF-8` },
+    }).then((response) => response.json(alert("Password has been reset. Please return to the app login screen to login.")))
+    document.getElementById("password").value = "";
+    document.getElementById("password2").value = "";
+}
+
 const Settings = () => {
     return (
         <div>
@@ -65,7 +95,7 @@ const Settings = () => {
                         <input type="password" id="password2" className="input2"/>
                     </label>
                     </div>
-                    <button onClick={resetPass} className="button">Submit</button>
+                    <button onClick={PATCH} className="button">Submit</button>
                 </form>
             </div>
         </div>

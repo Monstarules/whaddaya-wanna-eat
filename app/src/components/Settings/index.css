@@ -12,8 +12,9 @@
 .box_container{
     border: 3px solid #FC4830;
     width: 50%;
-    margin: auto;
-    margin-bottom: 10px
+    margin:auto;
+    margin-top:7%;
+    margin-bottom: 11%;
 }
 
 .text{
@@ -65,7 +66,7 @@
     }
 
     .box_container{
-        border: 2px solid black;
+        border: 2px solid #FC4830;
         width: 90%;
         margin: auto;
     }
