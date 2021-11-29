@@ -91,7 +91,7 @@ const resetPassword = async (req, res) => {
 //             return res.status(404).json({ status: 'failure', message: 'User not found' })
 //         }
 
-//         const newPassword = await user.updatePassword(req.body.password)
+        const newPassword = await user.updatePassword(req.body.password)
 
 //         const updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, { password: newPassword })
 
