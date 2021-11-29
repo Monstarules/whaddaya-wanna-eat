@@ -86,10 +86,19 @@ const sendPasswordReset = async (req, res) => {
 }
 
 const resetPassword = async (req, res) => {
+    const userid: req.params.id
+    const newPassword = await user.updatePassword(newPassword)
+    
     try {
-        const user = await User.findOne({ _id: req.params.id })
-        const updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, { password: req.body.password })
-
+        const user = await User.findOne({ _id: userid })
+        
+        if (!user) {
+            return res.status(404).json({ status: 'failure', message: 'User does not exist'}) 
+        }
+        
+        const newPassword = await user.updatePassword(newPassword)
+        const updatedUser = await User.findOneAndUpdate({ _id: userid }, { password: newPassword })
+        
         res.status(200).json({ status: 'success', message: 'Password has been reset' })
     } catch (error) {
         res.status(500).json({ status: 'failure', message: error })
