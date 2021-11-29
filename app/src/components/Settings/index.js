@@ -17,11 +17,11 @@ const PATCH = (id) => {
         alert("Passwords do not match. Please make sure passwords are the same before submitting.");
     }
 	else {
-		var tmp = {"password":pass};
+		var password = pass;
 		console.log(JSON.stringify({tmp}));
 		fetch(`https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/${id}`, {
 			method: `PATCH`,
-			body: JSON.stringify({tmp}),
+			body: JSON.stringify({password}),
 			headers: { 'Content-type': `application/json; charset=UTF-8` },
 		}).then((response) => response.json(alert("Password has been reset. Please return to the app login screen to login.")))
 		document.getElementById("password").value = "";
