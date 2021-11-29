@@ -17,7 +17,6 @@ function resetPass()
     }
     else{
         alert("Passwords do not match. Please make sure passwords are the same before submitting.");
-        throw "exit";
     }
 	
 	var url = `https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword?acc=${id}`;
@@ -59,15 +58,14 @@ function PATCH ()
     if(pass === pass2){
         if(pass.length < 5){
             alert("Password is too short. Please make sure passwords are at least 5 characters in length.");
-            throw "exit";
         }
-        var tmp = {"password":pass};
-	console.log(tmp)
+        var tmp = {"password" : \"pass\"};
     }
     else{
         alert("Passwords do not match. Please make sure passwords are the same before submitting.");
-        throw "exit";
     }
+	console.log(JSON.stringify({tmp}))
+	alert("HARD PAUSE")
 
     fetch(`https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/${id}`, {
       method: `PATCH`,
