@@ -15,6 +15,7 @@ function resetPass() {
 	    	var jsonPayload = JSON.stringify(tmp);
 		
 		console.log(jsonPayload)
+		alert ("HARD PAUSE - Only because dumb stuff. We can comment this out once I test my suspicions...")
 		
 		var url = `https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/{id}`;
 	
