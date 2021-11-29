@@ -94,10 +94,10 @@ const resetPassword = async (req, res) => {
 
 //         const newPassword = await user.updatePassword(req.body.password)
 //         const newPassword = 'areallygoodpassword'
-        const salt = await bcrypt.genSalt(10)
-        const newPassword = await bcrypt.hash(req.body.password, salt)
+//         const salt = await bcrypt.genSalt(10)
+//         const newPassword = await bcrypt.hash(req.body.password, salt)
 
-        const updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, { password: newPassword })
+        const updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, { password: req.body.password })
 
         res.status(200).json({ status: 'success', message: 'Password has been reset' })
     } catch (error) {
