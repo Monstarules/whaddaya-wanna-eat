@@ -18,10 +18,38 @@
     align-items:center;
     border:2px solid #000;
     width:750px;
-    margin-left:300px;
+    margin-left:22%;
+    margin-bottom:8%;
+}
+
+.list2{
+    justify-content:center;
+    align-items:center;
+    border:2px solid rgb(18, 134, 70);
+    border-radius: 25px;
+    width:750px;
+    margin-left:22%;
+    margin-bottom:2%;
+}
+
+.list3{
+    justify-content:center;
+    align-items:center;
+    border:2px solid #f00;
+    border-radius: 25px;
+    width:750px;
+    margin-left:22%;
+    margin-bottom:5%;
 }
 
 .items{
     justify-content:center;
     text-align:center;
+}
+
+.thing{
+    justify-content:center;
+    margin-left:25%;
+    align-items: center;
+    color: orange;
 }
