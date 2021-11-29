@@ -1,51 +1,32 @@
 import React from 'react';
 import './index.css';
 
-function resetPass() {
-	var currUrl = window.location.href;
-	var id = currUrl.substring(currUrl.lastIndexOf('=') + 1);
+const PATCH = (id) => {
+    var currUrl = window.location.href;
+    var id = currUrl.substring(currUrl.lastIndexOf('=') + 1);
 
 	var pass = document.getElementById("password").value;
 	var pass2 = document.getElementById("password2").value;
-	
-	// Sorry Allie, I'm commenting this out for now.
-	// document.getElementById("resetPassword").innerHTML = "";
-	if(pass === pass2){
-        	var tmp = {"password":pass};
-	    	var jsonPayload = JSON.stringify(tmp);
-		
-		console.log(jsonPayload)
-		alert ("HARD PAUSE - Only because dumb stuff. We can comment this out once I test my suspicions...")
-		
-		var url = `https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/{id}`;
-	
-		var xhr = new XMLHttpRequest();
-		xhr.open("PATCH", url, true);
-		xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-		try
-		{
-			xhr.onreadystatechange = function() 
-			{
-				if (this.readyState === 4 && this.status === 200) 
-				{
-					document.getElementById("resetPassword").innerHTML = "Password has been reset.";
-					alert("Password has been reset.");
-				}
-			};
-			xhr.send(jsonPayload);
-		}
-		catch(err)
-		{
-			document.getElementById("resetPassword").innerHTML = err.message;
-			alert("error");
-		}
+
+	document.getElementById("resetPassword").innerHTML = "";
+
+    if(pass.length < 5){
+        alert("Password is too short. Please make sure passwords are at least 5 characters in length.");
     }
-    else {
+    else if (pass != pass2) {
         alert("Passwords do not match. Please make sure passwords are the same before submitting.");
     }
-	
-	document.getElementById("password").value = "";
-	document.getElementById("password2").value = "";
+	else {
+		var tmp = {"password":pass};
+		
+		fetch(`https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword/${id}`, {
+			method: `PATCH`,
+			body: JSON.stringify({tmp}),
+			headers: { 'Content-type': `application/json; charset=UTF-8` },
+		}).then((response) => response.json(alert("Password has been reset. Please return to the app login screen to login.")))
+		document.getElementById("password").value = "";
+		document.getElementById("password2").value = "";
+	}
 }
 
 const Settings = () => {
@@ -68,7 +49,7 @@ const Settings = () => {
                         <input type="password" id="password2" className="input2"/>
                     </label>
                     </div>
-                    <button onClick={resetPass()} className="button">Submit</button>
+                    <button onClick={PATCH} className="button">Submit</button>
                 </form>
             </div>
         </div>
