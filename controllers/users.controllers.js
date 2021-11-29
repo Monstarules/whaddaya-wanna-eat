@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
 const { sendConfirmationEmail, sendPasswordResetEmail } = require('../config/nodemailer')
 const User = require('../models/User')
 
@@ -91,10 +92,12 @@ const resetPassword = async (req, res) => {
 //             return res.status(404).json({ status: 'failure', message: 'User not found' })
 //         }
 
-        const newPassword = await user.updatePassword(req.body.password)
+//         const newPassword = await user.updatePassword(req.body.password)
 //         const newPassword = 'areallygoodpassword'
+        const salt = await bcrypt.genSalt(10)
+        const newPassword = await bcrypt.hash(req.body.password, salt)
 
-        const updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, { password: req.body.password })
+        const updatedUser = await User.findOneAndUpdate({ _id: req.params.id }, { password: newPassword })
 
         res.status(200).json({ status: 'success', message: 'Password has been reset' })
     } catch (error) {
