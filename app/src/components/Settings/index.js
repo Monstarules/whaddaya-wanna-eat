@@ -20,7 +20,7 @@ function resetPass()
         throw "exit";
     }
 	
-	var url = `https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword#${id}`;
+	var url = `https://waddaya-wanna-eat.herokuapp.com/api/users/resetPassword?acc=${id}`;
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open("PATCH", url, true);
@@ -47,7 +47,8 @@ function resetPass()
 
 const PATCH = (id) => {
     var currUrl = window.location.href;
-    var id = currUrl.substring(currUrl.lastIndexOf('#') + 1);
+    var id = currUrl.substring(currUrl.lastIndexOf('=') + 1);
+	console.log(id)
 
 	var pass = document.getElementById("password").value;
 	var pass2 = document.getElementById("password2").value;
