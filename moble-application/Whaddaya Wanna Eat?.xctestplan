@@ -1,0 +1,23 @@
+{
+  "configurations" : [
+    {
+      "id" : "93029FEE-E7F8-47C3-AD52-2371F00C1906",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Whaddaya Wanna Eat?.xcodeproj",
+      "identifier" : "B8E4F029270E53700060F134",
+      "name" : "Whaddaya Wanna Eat?"
+    }
+  },
+  "testTargets" : [
+
+  ],
+  "version" : 1
+}
