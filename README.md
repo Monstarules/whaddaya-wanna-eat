@@ -2,10 +2,10 @@
 UCF COP 4331 (POOSD) Large Project - Group 1
 
 # Members
-- Orion Schyberg (PM)
-- Lezette Leuterio (Frontend)
-- Dylan Reuter (API)
-- Brandon Rubio (API/DB)
-- Allexis Knight (Frontend/Artwork)
-- Sophie Guelfi (App Development)
-- Andre Rodriguez (API)
+- Orion (PM)
+- Lezette (Frontend)
+- Dylan (API)
+- Brandon (API/DB)
+- Allexis (Frontend/Artwork)
+- Sophie (App Development)
+- Andre (API)
