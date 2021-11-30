@@ -22,7 +22,7 @@ const sendConfirmationEmail = async (username, email, confirmationCode) => {
             html: `<h1>Email Confirmation</h1>
                 <h2>Hello ${username}</h2>
                 <p>Thank you for creating an account on whaddya-wanna-eat. Please confirm your email by clicking on the following link</p>
-                <a href=https://waddaya-wanna-eat.herokuapp.com/api/users/confirm/{confirmationCode}> Click here</a>
+                <a href=https://waddaya-wanna-eat.herokuapp.com/api/users/confirm/${confirmationCode}> Click here</a>
                 </div>`,
         })
     } catch (error) {
